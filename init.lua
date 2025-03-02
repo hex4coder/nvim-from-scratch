@@ -1,5 +1,4 @@
 require("config.lazy")
-
 -- init configs
 vim.opt.smarttab = true
 vim.opt.expandtab = true
@@ -9,8 +8,5 @@ vim.opt.softtabstop = 2
 
 vim.cmd("set number")
 vim.cmd("set relativenumber")
-
-
-
 
 require("remap")
