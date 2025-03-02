@@ -7,7 +7,7 @@ local opts = {
 -- save file
 map({ "n", "v" }, "<C-s>", function()
   vim.cmd("wa")
-  vim.cmd("lua vim.lsp.buf.format()")
+  vim.lsp.buf.format()
 end, opts)
 
 -- for moving window
@@ -38,3 +38,9 @@ map({ "n", "v" }, "<M-V>", "<cmd>vsplit term://zsh<cr>", opts)
 
 -- exit from terminal to normal mode
 map("t", "<Esc>", "<C-\\><C-n>", opts)
+
+-- resize window
+map("n", "<C-down>", "<cmd>horizontal resize +2<cr>", opts)
+map("n", "<C-up>", "<cmd>horizontal resize -2<cr>", opts)
+map("n", "<C-left>", "<cmd>vertical resize +2<cr>", opts)
+map("n", "<C-right>", "<cmd>vertical resize -2<cr>", opts)
