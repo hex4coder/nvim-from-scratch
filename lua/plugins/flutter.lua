@@ -24,8 +24,30 @@ return {
 				debugger = {
 
 					enable = true,
-					register_configuration = function(paths)
-						require("dap").configurations.dart = {}
+					run_via_dap = true,
+					exception_breakpoints = "all",
+					register_configuration = function()
+						local dap = require("dap")
+
+						dap.adapters.dart = {
+							type = "executable",
+							command = "dart",
+							args = { "debug_adapter" },
+						}
+
+						dap.configurations.dart = {
+							{
+								type = "dart",
+								name = "Flutter Run",
+								request = "launch",
+								program = "${workspaceFolder}/lib/main.dart",
+							},
+							{
+								type = "dart",
+								name = "Flutter Attach",
+								request = "attach",
+							},
+						}
 					end,
 				},
 				root_patterns = { ".git", "pubspec.yaml" },
