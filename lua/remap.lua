@@ -6,8 +6,7 @@ local opts = {
 
 -- save file
 map({ "n", "v" }, "<C-s>", function()
-  vim.cmd("wa")
-  vim.lsp.buf.format()
+  vim.cmd("w")
 end, opts)
 
 -- for moving window
@@ -17,7 +16,7 @@ map({ "n", "v" }, "<C-k>", "<C-w>k", opts)
 map({ "n", "v" }, "<C-l>", "<C-w>l", opts)
 
 -- for file explorer
-map("n", "<leader>e", "<cmd>Neotree toggle=true<cr>", opts)
+map("n", "<C-e>", "<cmd>Neotree toggle=true<cr>", opts)
 
 -- for lazy package manager
 map("n", "<leader>l", "<cmd>Lazy<cr>", opts)

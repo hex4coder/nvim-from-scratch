@@ -1,5 +1,4 @@
 require("config.lazy")
-
 -- init configs
 vim.cmd("set mouse=a")
 vim.cmd("set clipboard=unnamedplus")

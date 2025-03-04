@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"stevearc/dressing.nvim", -- optional for vim.ui.select
+		"saghen/blink.cmp",
 	},
 	config = function()
 		require("flutter-tools").setup({
@@ -87,7 +88,8 @@ return {
 						virtual_text_str = "■", -- the virtual text character to highlight
 					},
 					-- on_attach = my_custom_on_attach,
-					capabilities = require("cmp_nvim_lsp").default_capabilities(), -- e.g. lsp_status capabilities
+					--
+					capabilities = require("blink.cmp").get_lsp_capabilities(),
 					--- OR you can specify a function to deactivate or change or control how the config is created
 					-- see the link below for details on each option:
 					-- https://github.com/dart-lang/sdk/blob/master/pkg/analysis_server/tool/lsp_spec/README.md#client-workspace-configuration

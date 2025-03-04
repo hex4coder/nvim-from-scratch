@@ -31,8 +31,20 @@ return {
 	},
 	{
 		"leoluz/nvim-dap-go",
+		ft = "go",
+		dependencies = { "mfussenegger/nvim-dap" },
 		config = function()
-			require("dap-go").setup({})
+			require("dap-go").setup({
+				["<leader>db"] = { "<cmd>DapToggleBreakpoint<cr>", "Add breakpoint at line" },
+				["<leader>dus"] = {
+					function()
+						local widgets = require("dap.ui.widgets")
+						local sidebar = widgets.sidebar(widgets.scopes)
+						sidebar.open()
+					end,
+					"start debugging go",
+				},
+			})
 		end,
 	},
 	{
